@@ -24,7 +24,20 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # GitHub Pages runs only from a public repo here, so nothing is built while this one is private.
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      public: ${{ steps.visibility.outputs.public }}
+    steps:
+      - id: visibility
+        run: echo "public=$(gh api "repos/$GITHUB_REPOSITORY" --jq '.private | not')" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
   build:
+    needs: check
+    if: needs.check.outputs.public == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Check out the site
@@ -37,8 +50,6 @@ jobs:
           ref: ${{ inputs.ref || 'main' }}
           path: _miserly
           sparse-checkout: docs/user-guide/pages
-          # Only needed while the app's repo is private: a read-only token saved as this secret.
-          token: ${{ secrets.MISERLY_READ_TOKEN || github.token }}
 
       - uses: actions/setup-node@v4
         with:
