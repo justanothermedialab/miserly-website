@@ -28,6 +28,7 @@ const sidebar = fs
 		const slug = f.replace(/\.md$/, '');
 		return { order: Number(field('order')), label: field('label') ?? field('title'), slug: slug === 'index' ? '' : slug };
 	})
+	.filter((p) => !Number.isNaN(p.order)) // a page without a sidebar order (Privacy) is built but not listed
 	.sort((a, b) => a.order - b.order)
 	.map(({ label, slug }) => ({ label, slug }));
 

@@ -49,7 +49,12 @@ jobs:
           repository: justanothermedialab/miserly
           ref: ${{ inputs.ref || 'main' }}
           path: _miserly
-          sparse-checkout: docs/user-guide/pages
+          sparse-checkout: |
+            docs/user-guide/pages
+            PRIVACY.md
+          sparse-checkout-cone-mode: false
+          # Only while the app's repo is private: a read-only token saved as this secret. Delete it after.
+          token: ${{ secrets.MISERLY_READ_TOKEN || github.token }}
 
       - uses: actions/setup-node@v4
         with:

@@ -27,6 +27,13 @@ npx serve _site                       # or any static server; open http://localh
 
 Open `_site` through a server, not as files: the pages link to `/docs/...` from the site's root.
 
+## Search engines
+
+`INDEXABLE` at the top of `scripts/build.mjs` is `false` until the release: every page carries a
+`noindex` tag and `robots.txt` names no sitemap. Set it to `true` to let search engines in.
+
+The privacy policy at `/docs/privacy/` is built from the app's `PRIVACY.md`.
+
 ## Light and Dark
 
 Both pages follow the system's theme. A choice made in the landing's footer or the guide's header is
