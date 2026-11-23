@@ -26,6 +26,9 @@ const fresh = (d) => { fs.rmSync(d, { recursive: true, force: true }); fs.mkdirS
 // 1. The guide's pages and the landing's font and favicon, into the docs project.
 fresh(path.join(docs, 'pages'));
 fs.cpSync(pagesSrc, path.join(docs, 'pages'), { recursive: true });
+// The front page's tab: "Miserly Guide" alone, not "<its heading> | Miserly Guide".
+const front = path.join(docs, 'pages/index.md');
+fs.writeFileSync(front, fs.readFileSync(front, 'utf8').replace(/^---\r?\n/, '---\nhead:\n  - tag: title\n    content: Miserly Guide\n'));
 // The privacy policy, from the app's PRIVACY.md (the address the Microsoft Store listing gives),
 // at /docs/privacy/, outside the guide's sidebar.
 const privacy = fs.readFileSync(path.resolve(app, 'PRIVACY.md'), 'utf8').replace(/^# .*\r?\n/, '');
