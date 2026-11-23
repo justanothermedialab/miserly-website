@@ -1,0 +1,7 @@
+node_modules/
+_site/
+docs/dist/
+docs/.astro/
+# Copied in by scripts/build.mjs: the guide's pages from the app's repo, the font and favicon from site/.
+docs/pages/
+docs/public/

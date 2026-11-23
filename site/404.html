@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | Miserly</title>
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/site.css">
+<script>
+	// The same theme as the landing page and the guide (one key for both).
+	(function () {
+		var m = null; try { m = localStorage.getItem('starlight-theme'); } catch (e) {}
+		var d = m === 'dark' || (m !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+		document.documentElement.dataset.ground = d ? 'ink' : 'day';
+		document.documentElement.dataset.theme = d ? 'dark' : 'light';
+	})();
+</script>
+<style>
+	.lost { min-height: calc(100vh - 76px); display: flex; align-items: center; padding: 120px 0 80px; }
+	.lost h1 { font-size: 40px; }
+	.lost .acts { display: flex; gap: 10px; margin-top: 30px; flex-wrap: wrap; }
+	.lost .btn { height: 44px; }
+</style>
+</head>
+<body>
+<nav class="nav scrolled" aria-label="Main">
+	<a class="brand" href="/" aria-label="Miserly, home"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18 10 10 18 2 10Z" fill="none" stroke="var(--fx-gold)" stroke-width="2.2" stroke-linejoin="round"/></svg>Miserly</a>
+	<span class="links"><a href="/docs/">Guide</a></span>
+</nav>
+<main class="lost"><div class="wrap">
+	<h1>This page isn't here</h1>
+	<p class="lead">The address may be mistyped, or the page has moved. The guide has every page in its list.</p>
+	<div class="acts"><a class="btn primary" href="/">Home</a><a class="btn outline" href="/docs/">Read the guide</a></div>
+</div></main>
+<footer><div class="fband"><div class="wrap"><span>© 2026 <a href="https://www.jamlab.in/">JAM Lab</a></span><a href="https://github.com/justanothermedialab/miserly">GitHub</a></div></div></footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+/* The guide in the landing page's look: the same grounds (Daylight in Light, Ink in Dark), the same type,
+   black and white buttons, and the gold diamond as the only colour. Starlight's names, the landing's values. */
+
+@font-face {
+	font-family: 'InterSite';
+	src: url('/fonts/Inter-site.woff2') format('woff2');
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+/* Dark: the Ink ground. */
+:root {
+	--sl-font: 'Segoe UI Variable Text', 'InterSite', system-ui, sans-serif;
+	--mw-display: 'Segoe UI Variable Display', 'InterSite', system-ui, sans-serif;
+
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #ededed;
+	--sl-color-gray-2: #c8c8c8;
+	--sl-color-gray-3: #9a9a9a;
+	--sl-color-gray-4: #6e6e6e;
+	--sl-color-gray-5: #333333;
+	--sl-color-gray-6: #181818;
+	--sl-color-black: #0b0b0b;
+
+	--sl-color-accent-low: #262626;
+	--sl-color-accent: #f3f3f3;
+	--sl-color-accent-high: #ffffff;
+	--sl-color-text-accent: #ffffff;
+	--sl-color-text-invert: #141414;
+
+	--sl-color-bg: #0b0b0b;
+	--sl-color-bg-nav: #0b0b0b;
+	--sl-color-bg-sidebar: #0b0b0b;
+	--sl-color-bg-inline-code: #1f1f1f;
+	--sl-color-hairline: rgba(255, 255, 255, 0.12);
+	--sl-color-hairline-light: rgba(255, 255, 255, 0.16);
+	--sl-color-hairline-shade: rgba(255, 255, 255, 0.12);
+
+	--mw-card: #141414;
+	--mw-tint: #181818;
+	--mw-hair: rgba(255, 255, 255, 0.13);
+	--mw-on-2: #c8c8c8;
+	--mw-fband: #050505;
+	--mw-fon: #a8a8a8;
+	--mw-gold: #c9a24b;
+
+	--sl-content-width: 46rem;
+	--sl-nav-height: 4.5rem;
+}
+
+/* Light: the Daylight ground. */
+:root[data-theme='light'] {
+	--sl-color-white: #161616;
+	--sl-color-gray-1: #1f2124;
+	--sl-color-gray-2: #3a3a3a;
+	--sl-color-gray-3: #555a60;
+	--sl-color-gray-4: #868b91;
+	--sl-color-gray-5: #c9cdd2;
+	--sl-color-gray-6: #e4e6e9;
+	--sl-color-gray-7: #f5f6f7;
+	--sl-color-black: #eef0f2;
+
+	--sl-color-accent-low: #e4e6e9;
+	--sl-color-accent: #161616;
+	--sl-color-accent-high: #161616;
+	--sl-color-text-accent: #161616;
+	--sl-color-text-invert: #ffffff;
+
+	--sl-color-bg: #eef0f2;
+	--sl-color-bg-nav: #eef0f2;
+	--sl-color-bg-sidebar: #eef0f2;
+	--sl-color-bg-inline-code: #ffffff;
+	--sl-color-hairline: rgba(0, 0, 0, 0.09);
+	--sl-color-hairline-light: rgba(0, 0, 0, 0.12);
+	--sl-color-hairline-shade: rgba(0, 0, 0, 0.09);
+
+	--mw-card: #ffffff;
+	--mw-tint: #e3e6ea;
+	--mw-hair: rgba(0, 0, 0, 0.12);
+	--mw-on-2: #3a3a3a;
+	--mw-fband: #e6e8eb;
+	--mw-fon: #555a60;
+}
+
+/* The header: the landing's nav, opaque with a hairline, the brand in the display face. */
+.site-title { font: 600 20px/1 var(--mw-display); letter-spacing: -0.01em; color: var(--sl-color-white); gap: 10px; }
+.site-title img { width: 20px; height: 20px; }
+
+/* Type: the landing's display face for headings, at its light weight. */
+.sl-markdown-content h1, .sl-markdown-content h2, .sl-markdown-content h3, h1#_top {
+	font-family: var(--mw-display);
+	font-weight: 400;
+	letter-spacing: -0.015em;
+	color: var(--sl-color-white);
+}
+h1#_top { font-size: clamp(2rem, 4vw, 2.6rem); letter-spacing: -0.02em; }
+.sl-markdown-content h2 { font-size: 1.75rem; margin-top: 2.6rem; }
+.sl-markdown-content h3 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; }
+.sl-markdown-content { font-size: 1.0625rem; line-height: 1.65; }
+
+/* Links: the text's own colour, underlined (no accent hue, as on the landing). */
+.sl-markdown-content a:not(:where(.not-content *)) { color: var(--sl-color-white); text-decoration: underline;
+	text-decoration-color: var(--sl-color-gray-4); text-underline-offset: 3px; }
+.sl-markdown-content a:not(:where(.not-content *)):hover { text-decoration-color: currentColor; }
+
+/* Pictures of the app: framed like the landing's app pieces. */
+.sl-markdown-content img { border-radius: 10px; box-shadow: 0 0 0 1px var(--mw-hair), 0 10px 30px rgba(30, 34, 40, 0.12); }
+:root:not([data-theme='light']) .sl-markdown-content img { box-shadow: 0 0 0 1px var(--mw-hair), 0 10px 30px rgba(0, 0, 0, 0.5); }
+
+/* Tables and inline code on the landing's card colour. */
+.sl-markdown-content table { background: var(--mw-card); border-radius: 8px; box-shadow: 0 0 0 1px var(--mw-hair); }
+.sl-markdown-content :is(th, td) { border-bottom-color: var(--mw-hair); }
+.sl-markdown-content th { background: var(--mw-tint); }
+.sl-markdown-content code:not(:where(.not-content *, pre *)) { border-radius: 4px; padding: 0.1em 0.35em; }
+
+/* The sidebar: the current page as the landing's primary button (black in Light, white in Dark). */
+.sidebar-content a { border-radius: 8px; font-weight: 400; color: var(--sl-color-white); }
+.sidebar-content a[aria-current='page'] { font-weight: 600; color: var(--sl-color-text-invert); }
+
+/* The wide search field: a card with a hairline, like the landing's boxes (the phone's icon button stays bare). */
+@media (min-width: 50rem) {
+	site-search button[data-open-modal] { border-radius: 8px; background: var(--mw-card); border-color: var(--mw-hair); }
+}
+
+/* Pagination: cards on the landing's card colour. */
+.pagination-links a { border-radius: 10px; background: var(--mw-card); border-color: var(--mw-hair); box-shadow: none; }
+
+/* Asides (notes and cautions) stay quiet: hairline cards, no coloured fill. */
+.starlight-aside { border-radius: 8px; background: var(--mw-card); }
+
+/* Focus ring as on the landing. */
+:focus-visible { outline: 2px solid var(--sl-color-white); outline-offset: 3px; }
