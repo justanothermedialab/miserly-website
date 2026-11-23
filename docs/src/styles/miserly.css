@@ -83,7 +83,7 @@
 }
 
 /* The header: the landing's nav, opaque with a hairline, the brand in the display face. */
-.site-title { font: 600 20px/1 var(--mw-display); letter-spacing: -0.01em; color: var(--sl-color-white); gap: 10px; }
+.site-title { font: 600 20px/1.3 var(--mw-display); letter-spacing: -0.01em; color: var(--sl-color-white); gap: 10px; }
 .site-title img { width: 20px; height: 20px; }
 
 /* Type: the landing's display face for headings, at its light weight. */
