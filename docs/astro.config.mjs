@@ -50,7 +50,7 @@ export default defineConfig({
 	markdown: { processor: satteri({ mdastPlugins: [pageLinks] }) },
 	integrations: [
 		starlight({
-			title: 'Miserly guide',
+			title: 'Miserly Guide',
 			description:
 				'How to install and use Miserly, a free, open-source expense and net worth tracker for Indian accounts.',
 			logo: { src: './src/assets/mark.svg', alt: '' },
@@ -62,6 +62,7 @@ export default defineConfig({
 			components: {
 				SocialIcons: './src/components/SocialIcons.astro',
 				Footer: './src/components/Footer.astro',
+				SiteTitle: './src/components/SiteTitle.astro',
 			},
 			head: [
 				{ tag: 'meta', attrs: { property: 'og:image', content: `${site}/img/og.png` } },
