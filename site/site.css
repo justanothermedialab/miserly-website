@@ -74,7 +74,7 @@ h1 span { display: block; }
 .sub { font-size: 18px; line-height: 1.55; color: var(--on-2); margin: 22px 0 0; max-width: 400px; }
 .sub span { display: block; }
 .sub span + span { margin-top: 10px; }
-.btns { display: flex; gap: 10px; margin-top: 30px; }
+.btns { display: flex; align-items: flex-start; gap: 10px; margin-top: 30px; }
 .btn { display: inline-flex; align-items: center; gap: 10px; font: 600 16px/1 var(--sans); border-radius: var(--r-button);
 	height: 50px; padding: 0 20px; white-space: nowrap; }
 .btn.primary { background: var(--btn); color: var(--btn-on); }
@@ -249,6 +249,16 @@ h2 { font: 400 40px/1.15 var(--display); letter-spacing: -0.015em; margin: 0; }
 .cl10 { display: grid; grid-template-columns: 440px 1fr; gap: 0; align-items: center; }
 .cl10 .t { display: flex; flex-direction: column; }
 .acts10 { margin-top: 40px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; } .acts10 .p-btn { margin-bottom: 6px; }
+/* The Windows download: Microsoft's Store badge as it is (its rules: not changed in any way), the portable zip as a link under it. */
+.ms-badge { display: inline-flex; border-radius: 6px; flex: none; }
+.ms-badge img { display: block; height: 50px; width: auto; }
+.alt-dl { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font: 500 15px/1.3 var(--sans); color: var(--on-2); }
+.alt-dl svg { width: 12px; height: 12px; flex: none; }
+.alt-dl span { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.alt-dl:hover { color: var(--on); }
+.dl-pair { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; } .dl-pair .alt-dl { margin-top: 0; }
+.acts10 .dl-pair { margin-bottom: 6px; }
+.btns .dl-pair { width: 183px; } .btns .alt-dl { white-space: nowrap; } /* the hero: Docker sits beside the badge, the link runs under both */
 .arr { display: inline-flex; align-items: center; gap: 10px; font: 600 15px/1 var(--sans); }
 .arr i { width: 35px; height: 35px; border-radius: 6px; background: var(--btn); color: var(--btn-on); display: grid; place-items: center; }
 .arr svg { width: 14px; height: 14px; }
@@ -309,6 +319,7 @@ h2 { font: 400 40px/1.15 var(--display); letter-spacing: -0.015em; margin: 0; }
 	h1 { font-size: 34px; }
 	.btns { flex-direction: column; }
 	.btns .btn { justify-content: center; }
+	.btns { align-items: stretch; } .btns .dl-pair { width: auto; align-items: center; margin-bottom: 6px; }
 	.win { margin-top: 36px; width: 1000px; height: 420px; }
 	.win img { width: 1000px; }
 	.card { left: calc(var(--L) - 8px); bottom: 20px; }
