@@ -1,7 +1,7 @@
 # miserly.jamlab.in
 
 The website of [Miserly](https://github.com/justanothermedialab/miserly), an expense and net worth
-tracker for Indian accounts: the landing page at `/` and the user guide at `/docs`.
+tracker: the landing page at `/` and the user guide at `/docs`.
 
 The guide's text is not kept here. It lives in the app's repo, in
 [`docs/user-guide/pages/`](https://github.com/justanothermedialab/miserly/tree/main/docs/user-guide/pages),

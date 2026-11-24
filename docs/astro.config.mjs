@@ -52,7 +52,7 @@ export default defineConfig({
 		starlight({
 			title: 'Miserly Guide',
 			description:
-				'How to install and use Miserly, a free, open-source expense and net worth tracker for Indian accounts.',
+				'How to install and use Miserly, a free, open-source expense and net worth tracker.',
 			logo: { src: './src/assets/mark.svg', alt: '' },
 			favicon: '/favicon.svg',
 			sidebar,
