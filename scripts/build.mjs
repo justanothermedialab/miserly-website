@@ -11,7 +11,7 @@ import { spawnSync } from 'node:child_process';
 
 // Search engines: false keeps every page out of search results (a noindex tag on each page, no
 // sitemap in robots.txt) while the site is live before the release. Set to true on release day.
-const INDEXABLE = false;
+const INDEXABLE = true;
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/(\w:)/, '$1')), '..');
 const app = process.argv[2] ?? process.env.MISERLY_DIR;
