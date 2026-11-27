@@ -68,7 +68,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .nav .btn { height: 38px; padding: 0 16px; font-size: 15px; }
 .nav .btn.outline { box-shadow: inset 0 0 0 1px var(--line); }
 
-.hero { position: absolute; z-index: 5; left: var(--L); top: 150px; width: 480px; }
+.hero { position: absolute; z-index: 5; left: var(--L); top: 98px; width: 480px; }
+/* The word's meaning, as in the README; the hero moves up by its height so the headline stays put. */
+.def { font-size: 14px; line-height: 20px; color: var(--on-2); margin: 0 0 14px; }
+.def span { display: block; font-style: normal; font-size: 12px; line-height: 18px; }
 h1 { font: 400 48px/1.17 var(--display); letter-spacing: -0.02em; margin: 0; }
 h1 span { display: block; }
 .sub { font-size: 18px; line-height: 1.55; color: var(--on-2); margin: 22px 0 0; max-width: 400px; }
@@ -284,7 +287,7 @@ h2 { font: 400 40px/1.15 var(--display); letter-spacing: -0.015em; margin: 0; }
 /* ===== Narrower windows ===== */
 @media (max-width: 999px) {
 	.band { height: auto; }
-	.hero { position: relative; left: 0; top: 0; width: auto; padding: 128px var(--L) 0; }
+	.hero { position: relative; left: 0; top: 0; width: auto; padding: 100px var(--L) 0; }
 	.hero .sub { max-width: 520px; }
 	.win { position: relative; left: var(--L); top: 0; margin-top: 48px; width: 1180px; height: 560px; }
 	.win img { width: 1180px; height: auto; }
@@ -315,7 +318,7 @@ h2 { font: 400 40px/1.15 var(--display); letter-spacing: -0.015em; margin: 0; }
 	.nav { height: 60px; gap: 16px; }
 	.links { display: none; }
 	.nav .btn { margin-left: auto; }
-	.hero { padding-top: 104px; }
+	.hero { padding-top: 84px; }
 	h1 { font-size: 34px; }
 	.btns { flex-direction: column; }
 	.btns .btn { justify-content: center; }
