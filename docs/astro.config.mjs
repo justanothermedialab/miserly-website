@@ -65,6 +65,10 @@ export default defineConfig({
 				SiteTitle: './src/components/SiteTitle.astro',
 			},
 			head: [
+				// The landing's raster icons (served from the site's root): Google wants a multiple of 48 px.
+				{ tag: 'link', attrs: { rel: 'icon', href: '/favicon.ico', sizes: '48x48' } },
+				{ tag: 'link', attrs: { rel: 'icon', href: '/icon-192.png', type: 'image/png', sizes: '192x192' } },
+				{ tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' } },
 				{ tag: 'meta', attrs: { property: 'og:image', content: `${site}/img/og.png` } },
 				{ tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
 				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },

@@ -29,6 +29,28 @@ fs.cpSync(pagesSrc, path.join(docs, 'pages'), { recursive: true });
 // The front page's tab: "Miserly Guide" alone, not "<its heading> | Miserly Guide".
 const front = path.join(docs, 'pages/index.md');
 fs.writeFileSync(front, fs.readFileSync(front, 'utf8').replace(/^---\r?\n/, '---\nhead:\n  - tag: title\n    content: Miserly Guide\n'));
+// Each page's own description for search results (else every page carries the guide's one line).
+// A page with a `description:` of its own keeps it; a page not listed here gets the guide's line.
+const descriptions = {
+	'quick-start': 'From opening Miserly to your first transaction on Windows: set it up, add an account and type what you spent.',
+	install: 'Install Miserly on Windows from the Microsoft Store or as a portable zip, or run it on a home server with Docker.',
+	'switching-from-actual': 'Bring your accounts and their whole history across from Actual Budget. See everything before it is saved, and undo the import if you change your mind.',
+	accounts: 'Add, edit and close accounts in Miserly: savings, credit cards, fixed deposits, mutual funds, PPF, EPF, NPS, property and loans.',
+	transactions: 'Add, edit and find transactions in Miserly, move money between your accounts, and sort out what is waiting in To categorize.',
+	investments: 'Track mutual funds, stocks, gold, deposits, PPF, EPF and NPS in Miserly: what you have put in and what it is worth now.',
+	'dashboard-and-reports': "Miserly's dashboard and reports: your net worth and how it changed, where your money went, and what came in against what went out.",
+	'people-and-sharing': 'Run one copy of Miserly for a household: a login for each person, accounts private until shared, and joint accounts both holders see.',
+	settings: "Miserly's settings: lakhs and crores or millions, the theme and accent, other currencies, importing from Actual, your data file and zoom.",
+	'your-data': 'Where Miserly keeps your data on Windows and on Docker, how to back it up, move it to another computer and get it out.',
+	'preview-notes': "What isn't in this preview of Miserly yet, the known issues, and how to report a problem or suggest an idea.",
+};
+for (const [slug, text] of Object.entries(descriptions)) {
+	const f = path.join(docs, 'pages', `${slug}.md`);
+	if (!fs.existsSync(f)) continue;
+	const md = fs.readFileSync(f, 'utf8');
+	if (/^description:/m.test(/^---\r?\n([\s\S]*?)\r?\n---/.exec(md)?.[1] ?? '')) continue;
+	fs.writeFileSync(f, md.replace(/^---\r?\n/, `---\ndescription: ${JSON.stringify(text)}\n`));
+}
 // The privacy policy, from the app's PRIVACY.md (the address the Microsoft Store listing gives),
 // at /docs/privacy/, outside the guide's sidebar.
 const privacy = fs.readFileSync(path.resolve(app, 'PRIVACY.md'), 'utf8').replace(/^# .*\r?\n/, '');
